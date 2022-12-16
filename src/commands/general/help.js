@@ -7,7 +7,7 @@ module.exports = class extends Command {
     super(client, {
       name: 'ajuda',
       description: 'Lista todos os comandos do bot.',
-      category: 'general',
+      category: 'info',
     });
   }
 
