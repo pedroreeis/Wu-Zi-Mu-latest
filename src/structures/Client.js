@@ -1,6 +1,8 @@
 require('dotenv/config');
 const { Client, MessageEmbed } = require('discord.js');
 
+//const Database = require('../database/database');
+
 const { readdirSync } = require('fs');
 const { join } = require('path');
 
@@ -13,13 +15,14 @@ module.exports = class extends Client {
     });
 
     this.commands = [];
+    //this.db = new Database();
+    this.utils = require('../util');
     this.loadCommands();
     this.loadEvents();
   }
 
   registryCommands() {
-    const guild = this.guilds.cache.get(process.env.GUILD_ID);
-    guild.commands.set(this.commands);
+   this.application.commands.set(this.commands);
   }
 
   loadCommands(path = 'src/commands') {

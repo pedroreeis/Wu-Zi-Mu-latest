@@ -8,7 +8,8 @@ module.exports = class extends Event {
   }
 
   run = async () => {
-    console.log(`Agora o servidor da proDRIFT está protegido.`);
     this.client.registryCommands();
+    this.client.user.setActivity('Criado pra ser engraçado, simples assim.')
+    //await this.client.db.connect();
   };
 };
