@@ -307,24 +307,26 @@ module.exports = class CanvasTemplates {
         ctx.fillStyle = color;
         ctx.font = '65px Arial';
 
-        ctx.font = '38px Arial';
         const accountCreated = 'Conta criada: ' + moment(author.user.createdTimestamp).format('ll');
         const joinedMemberGuild = 'Entrou na guild: ' + moment(author.joinedTimestamp).format('ll');
         const memberId = 'ID: ' + author.id
 
         const idY = 100;
-        const idX = 770;
+        const idX = 755;
 
         const accountCreatedY = 150;
-        const accountCreatedX = 860;
+        const accountCreatedX = (margin / 10) + padding + (avRadius / 10) - 200;
+        const accountCreatedW = ctx.measureText(accountCreated).width;
 
         const joinedMemberY = 200;
-        const joinedMemberX = 900;
+        const joinedMemberX = (margin / 10) + padding + (avRadius / 10) - 200;
+        const joinedMemberW = ctx.measureText(joinedMemberGuild).width;
 
+        ctx.font = '34px Arial';
         ctx.fillStyle = 'white';
         ctx.fillText(memberId, idX, idY);
-        ctx.fillText(accountCreated, accountCreatedX, accountCreatedY);
-        ctx.fillText(joinedMemberGuild, joinedMemberX, joinedMemberY);
+        ctx.fillText(accountCreated, (accountCreatedX + accountCreatedW) + 5, accountCreatedY);
+        ctx.fillText(joinedMemberGuild, (joinedMemberX + joinedMemberW) - 25, joinedMemberY);
 
         function fillRectWithImage(img, x, y, r) {
             const canvas2 = createCanvas(r * 2, r * 2);
