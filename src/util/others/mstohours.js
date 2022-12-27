@@ -25,6 +25,8 @@ module.exports = function mstohours(duration) {
       return `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos.`
   else if (hours > 0)
       return `${hours} horas, ${minutes} minutos e ${seconds} segundos.`
+  else if (minutes > 0)
+      return `${minutes} minutos e ${seconds} segundos.`
   else
-      return `${minutes}:${seconds} minutos.`
+      return `${seconds} segundos.`  
 }
